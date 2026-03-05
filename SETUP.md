@@ -41,6 +41,9 @@ chmod +x isaacsim-webrtc-streaming-client-1.1.4-linux-x64.AppImage
 ./isaacsim-webrtc-streaming-client-1.1.4-linux-x64.AppImage
 ```
 
+to run the demo, go to  `Window` -> `Examples` -> then check `Robot Examples`
+that will open a tab at the bottom, in that tab go to `ROS2` -> `ISAAC ROS` -> `Sample Scene` and `Load Sample Scene`
+
 ## setup isaac sim dev env
 
 install the isaac-ros cli, these docs can be found here -> https://nvidia-isaac-ros.github.io/getting_started/index.html
@@ -96,6 +99,13 @@ then activate
 isaac-ros activate
 ```
 
+install the needed packages, note you will need to do this every time you restart the container
+
+```bash
+sudo apt update
+sudo apt-get install -y ros-jazzy-isaac-ros-mission-client
+```
+
 ## setup the mqtt broker
 
 these docs can be found here -> https://nvidia-isaac-ros.github.io/concepts/missions/isaac_ros_mission_client.html
@@ -127,7 +137,7 @@ docker run -it --network host -v ~/mosquitto.sh:/mosquitto.sh -d eclipse-mosquit
 
 ## run the mission client
 
-all of these commands should be run in the isaac-ros-dev workspace, run `isaac-ros activate` if you haven't already
+run this command in the isaac-ros-dev workspace, run `isaac-ros activate` if you haven't already
 
 ```bash
 ros2 launch isaac_ros_vda5050_client_bringup isaac_ros_vda5050_client_nav2.launch.py init_pose_x:=-2.0 init_pose_yaw:=3.14159
@@ -138,11 +148,12 @@ ros2 launch isaac_ros_vda5050_client_bringup isaac_ros_vda5050_client_nav2.launc
 start the postfgres database
 
 ```bash
+export POSTGRES_PASSWORD=test
 docker run --rm --name postgres \
   --network host \
   -p 5432:5432 \
   -e POSTGRES_USER=postgres \
-  -e test \ # password
+  -e POSTGRES_PASSWORD \
   -e POSTGRES_DB=mission \
   -d postgres:14.5
 ```
@@ -153,3 +164,4 @@ start api and database server
 docker run -it --network host nvcr.io/nvidia/isaac/mission-database:4.1.0
 ```
 
+go to `http://localhost:5000/docs`
