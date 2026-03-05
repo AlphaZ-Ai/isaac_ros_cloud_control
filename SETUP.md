@@ -1,5 +1,6 @@
 # Setup ros cloud control
 
+This readme will setup the environment for you, if you want to look at where these steps were taken from, you can check the official docs, which are linked in each section.
 start here -> https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_cloud_control/isaac_ros_mission_client/index.html
 
 ## setup isaacsim in docker
@@ -24,15 +25,9 @@ docker run --name isaac-sim --entrypoint bash -it --runtime=nvidia --gpus all -e
     -v ~/docker/isaac-sim/logs:/root/.nvidia-omniverse/logs:rw \
     -v ~/docker/isaac-sim/data:/root/.local/share/ov/data:rw \
     -v ~/docker/isaac-sim/documents:/root/Documents:rw \
-    nvcr.io/nvidia/isaac-sim:5.1.0
+    nvcr.io/nvidia/isaac-sim:5.1.0 \
+    ./runheadless.sh -v
 ```
-
-in the container
-
-```bash
-./runheadless.sh -v
-```
-
 outside the container, download and run the webrtc client
 
 ```bash
@@ -46,7 +41,7 @@ that will open a tab at the bottom, in that tab go to `ROS2` -> `ISAAC ROS` -> `
 
 ## setup isaac sim dev env
 
-install the isaac-ros cli, these docs can be found here -> https://nvidia-isaac-ros.github.io/getting_started/index.html
+the following steps install the isaac-ros cli, the docs can be found here -> https://nvidia-isaac-ros.github.io/getting_started/index.html
 
 first setup the env workspace
 
