@@ -176,4 +176,56 @@ start api and database server
 docker run -it --network host nvcr.io/nvidia/isaac/mission-database:4.1.0
 ```
 
+start the mission dispatch server
+
+```bash
+docker run -it --network host nvcr.io/nvidia/isaac/mission-dispatch:4.1.0
+```
+
 go to `http://localhost:5000/docs`
+
+
+## test mission control
+This assumes you have the example scene running with the carter robot.
+
+first you need to register the robot in the `POST /register` endpoint.
+
+```json
+{
+  "labels": [],
+  "battery": {
+    "critical_level": 10
+  },
+  "heartbeat_timeout": 30,
+  "switch_teleop": false,
+  "name": "carter01"
+}
+```
+
+then you need to send the `POST /mission` endpoint with the following body
+
+```json
+{
+  "robot": "carter01",
+  "mission_tree": [
+    {
+      "name": "travel_to_point",
+      "parent": "root",
+      "route": {
+        "waypoints": [
+          {
+            "x": 0,
+            "y": 3,
+            "theta": 0,
+            "map_id": "",
+            "allowedDeviationXY": 0.1,
+            "allowedDeviationTheta": 0
+          }
+        ]
+      }
+    }
+  ],
+  "name": "mission_001"
+}
+```
+
