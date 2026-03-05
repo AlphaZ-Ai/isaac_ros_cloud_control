@@ -1,0 +1,32 @@
+{
+  "package_name": "vda5050_msgs",
+  "non_idl_tuples": [
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/Action.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/ActionParameter.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/ActionState.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/AGVPosition.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/AGVState.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/BatteryState.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/BoundingBoxReference.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/ControlPoint.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/Edge.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/EdgeState.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/Error.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/ErrorReference.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/Info.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/InfoReference.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/Load.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/LoadDimensions.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/Node.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/NodePosition.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/NodeState.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/Order.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/SafetyState.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/Trajectory.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/Velocity.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/InstantActions.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/Factsheet.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/PhysicalParameters.msg",
+    "/home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs:msg/TypeSpecification.msg"
+  ]
+}

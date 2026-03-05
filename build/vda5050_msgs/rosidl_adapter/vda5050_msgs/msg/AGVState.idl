@@ -1,0 +1,188 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from vda5050_msgs/msg/AGVState.msg
+// generated code does not contain a copyright notice
+
+#include "vda5050_msgs/msg/AGVPosition.idl"
+#include "vda5050_msgs/msg/ActionState.idl"
+#include "vda5050_msgs/msg/BatteryState.idl"
+#include "vda5050_msgs/msg/EdgeState.idl"
+#include "vda5050_msgs/msg/Error.idl"
+#include "vda5050_msgs/msg/Info.idl"
+#include "vda5050_msgs/msg/Load.idl"
+#include "vda5050_msgs/msg/NodeState.idl"
+#include "vda5050_msgs/msg/SafetyState.idl"
+#include "vda5050_msgs/msg/Velocity.idl"
+
+module vda5050_msgs {
+  module msg {
+    module AGVState_Constants {
+      @verbatim (language="comment", text=
+        "Enums for operatingMode" "\n"        "AGV is under full control of the master control." "\n"        "AGV drives and executes actions based on orders from the master control.")
+      const string AUTOMATIC = "AUTOMATIC";
+      @verbatim (language="comment", text=
+        "AGV is under control of the master control." "\n"        "AGV drives and executes actions based on orders from the master control.")
+      const string SEMIAUTOMATIC = "SEMIAUTOMATIC";
+      @verbatim (language="comment", text=
+        "Master control is not in control of the AGV." "\n"        "Supervisor doesn’t send driving order or actions to the AGV." "\n"        "HMI can be used to control the steering and velocity and handling device of" "\n"        "the AGV.")
+      const string MANUAL = "MANUAL";
+      @verbatim (language="comment", text=
+        "Master control is not in control of the AGV." "\n"        "Master control doesn’t send driving order or actions to the AGV." "\n"        "Authorized personal can reconfigure the AGV.")
+      const string SERVICE = "SERVICE";
+      @verbatim (language="comment", text=
+        "Master control is not in control of the AGV." "\n"        "Supervisor doesn’t send driving order or actions to the AGV." "\n"        "The AGV is being taught, e.g., mapping is done by a master control.")
+      const string TEACHIN = "TEACHIN";
+    };
+    @verbatim (language="comment", text=
+      "SPDX-FileCopyrightText: NVIDIA CORPORATION & AFFILIATES" "\n"
+      "Copyright (c) 2022 NVIDIA CORPORATION & AFFILIATES. All rights reserved." "\n"
+      "" "\n"
+      "Licensed under the Apache License, Version 2.0 (the \"License\");" "\n"
+      "you may not use this file except in compliance with the License." "\n"
+      "You may obtain a copy of the License at" "\n"
+      "" "\n"
+      "http://www.apache.org/licenses/LICENSE-2.0" "\n"
+      "" "\n"
+      "Unless required by applicable law or agreed to in writing, software" "\n"
+      "distributed under the License is distributed on an \"AS IS\" BASIS," "\n"
+      "WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied." "\n"
+      "See the License for the specific language governing permissions and" "\n"
+      "limitations under the License." "\n"
+      "" "\n"
+      "SPDX-License-Identifier: Apache-2.0")
+    struct AGVState {
+      @verbatim (language="comment", text=
+        "This repository implements data types and logic specified in the VDA5050" "\n"
+        "protocol, which is specified here" "\n"
+        "https://github.com/VDA5050/VDA5050/blob/main/VDA5050_EN.md" "\n"
+        "Header ID of the message. The headerId is defined per topic and incremented" "\n"
+        "by 1 with each sent (but not necessarily received) message.")
+      int32 header_id;
+
+      @verbatim (language="comment", text=
+        "Timestamp after ISO8601 in the format YYYY-MM-DDTHH:mm:ss.ssZ" "\n"
+        "(e.g.“2017-04-15T11:40:03.12Z”)")
+      string timestamp;
+
+      @verbatim (language="comment", text=
+        "Version of the protocol [Major].[Minor].[Patch] (e.g. 1.3.2)")
+      string version;
+
+      @verbatim (language="comment", text=
+        "Manufacturer of the AGV")
+      string manufacturer;
+
+      @verbatim (language="comment", text=
+        "Serial Number of the AGV")
+      string serial_number;
+
+      @verbatim (language="comment", text=
+        "Unique order identification of the current order or the previous finished" "\n"
+        "order. The orderId is kept until a new order is received. Empty string (\"\")," "\n"
+        "if no previous orderId is available.")
+      string order_id;
+
+      @verbatim (language="comment", text=
+        "Order identification. Is unique per orderId. If an order update is rejected," "\n"
+        "this field is to be passed in the rejection message")
+      uint32 order_update_id;
+
+      @verbatim (language="comment", text=
+        "Unique identifier of the zone set, that the AGV has to use for navigation or" "\n"
+        "that was used by master control for planning." "\n"
+        "Optional: If the AGV does not use zones, this field can be omitted.")
+      string zone_set_id;
+
+      @verbatim (language="comment", text=
+        "Node ID of last reached node or, if AGV is currently on a node, current node" "\n"
+        "(e.g., „node7”). Empty string (\"\"), if no lastNodeId is available.")
+      string last_node_id;
+
+      @verbatim (language="comment", text=
+        "Sequence ID of the last reached node or, if AGV is currently on a node," "\n"
+        "Sequence ID of current node. \"o\" if no lastNodeSequenced is available.")
+      int32 last_node_sequence_id;
+
+      @verbatim (language="comment", text=
+        "Array of nodeState-Objects, that need to be traversed for fulfilling the" "\n"
+        "order (empty list if idle)")
+      sequence<vda5050_msgs::msg::NodeState> node_states;
+
+      @verbatim (language="comment", text=
+        "Array of edgeState-Objects, that need to be traversed for fulfilling the" "\n"
+        "order (empty list if idle)")
+      sequence<vda5050_msgs::msg::EdgeState> edge_states;
+
+      @verbatim (language="comment", text=
+        "Current position of the AGV on the map." "\n"
+        "Optional: Can only be omitted for AGV without the capability to localize" "\n"
+        "themselves, e.g., line guided AGVs.")
+      vda5050_msgs::msg::AGVPosition agv_position;
+
+      @verbatim (language="comment", text=
+        "The AGV velocity in vehicle coordinates.")
+      vda5050_msgs::msg::Velocity velocity;
+
+      @verbatim (language="comment", text=
+        "Loads, that are currently handled by the AGV." "\n"
+        "Optional: If AGV cannot determine load state, leave the array out of the" "\n"
+        "state. If the AGV can determine the load state, but the array is empty, the" "\n"
+        "AGV is considered unloaded.")
+      sequence<vda5050_msgs::msg::Load> loads;
+
+      @verbatim (language="comment", text=
+        "“true”: indicates, that the AGV is driving and/or rotating. Other movements" "\n"
+        "of the AGV (e.g., lift movements) are not included here." "\n"
+        "“false”: indicates that the AGV is neither driving nor rotating.")
+      boolean driving;
+
+      @verbatim (language="comment", text=
+        "“true”: AGV is currently in a paused state, either because of the push of a" "\n"
+        "physical button on the AGV or because of an instantAction. The AGV can" "\n"
+        "resume the order." "\n"
+        "“false”: The AGV is currently not in a paused state.")
+      boolean paused;
+
+      @verbatim (language="comment", text=
+        "“true”: AGV is almost at the end of the base and will reduce speed, if no new" "\n"
+        "base is transmitted. Trigger for master control to send a new base." "\n"
+        "“false”: no base update required.")
+      boolean new_base_requested;
+
+      @verbatim (language="comment", text=
+        "Used by line guided vehicles to indicate the distance it has been driving" "\n"
+        "past the „lastNodeId“. Distance is in meters.")
+      double distance_since_last_node;
+
+      @verbatim (language="comment", text=
+        "Contains a list of the current actions and the actions, which are yet to be" "\n"
+        "finished." "\n"
+        "This may include actions from previous nodes, that are still in progress.")
+      sequence<vda5050_msgs::msg::ActionState> action_states;
+
+      @verbatim (language="comment", text=
+        "Contains all battery-related information.")
+      vda5050_msgs::msg::BatteryState battery_state;
+
+      @verbatim (language="comment", text=
+        "Enum {AUTOMATIC, SEMIAUTOMATIC, MANUAL, SERVICE, TEACHIN}")
+      string operating_mode;
+
+      @verbatim (language="comment", text=
+        "Array of error-objects." "\n"
+        "All active errors of the AGV should be in the list." "\n"
+        "An empty array indicates that the AGV has no active errors.")
+      sequence<vda5050_msgs::msg::Error> errors;
+
+      @verbatim (language="comment", text=
+        "Array of info-objects." "\n"
+        "An empty array indicates, that the AGV has no information." "\n"
+        "This should only be used for visualization or debugging – it must not be used" "\n"
+        "for logic in master control.")
+      sequence<vda5050_msgs::msg::Info> informations;
+
+      @verbatim (language="comment", text=
+        "Contains all safety-related information.")
+      vda5050_msgs::msg::SafetyState safety_state;
+    };
+  };
+};

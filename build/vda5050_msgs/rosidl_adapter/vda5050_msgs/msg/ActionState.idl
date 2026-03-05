@@ -1,0 +1,64 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from vda5050_msgs/msg/ActionState.msg
+// generated code does not contain a copyright notice
+
+
+module vda5050_msgs {
+  module msg {
+    module ActionState_Constants {
+      @verbatim (language="comment", text=
+        "Enums for actionStatus")
+      const string WAITING = "WAITING";
+      const string INITIALIZING = "INITIALIZING";
+      const string RUNNING = "RUNNING";
+      const string PAUSED = "PAUSED";
+      const string FINISHED = "FINISHED";
+      const string FAILED = "FAILED";
+    };
+    @verbatim (language="comment", text=
+      "SPDX-FileCopyrightText: NVIDIA CORPORATION & AFFILIATES" "\n"
+      "Copyright (c) 2022 NVIDIA CORPORATION & AFFILIATES. All rights reserved." "\n"
+      "" "\n"
+      "Licensed under the Apache License, Version 2.0 (the \"License\");" "\n"
+      "you may not use this file except in compliance with the License." "\n"
+      "You may obtain a copy of the License at" "\n"
+      "" "\n"
+      "http://www.apache.org/licenses/LICENSE-2.0" "\n"
+      "" "\n"
+      "Unless required by applicable law or agreed to in writing, software" "\n"
+      "distributed under the License is distributed on an \"AS IS\" BASIS," "\n"
+      "WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied." "\n"
+      "See the License for the specific language governing permissions and" "\n"
+      "limitations under the License." "\n"
+      "" "\n"
+      "SPDX-License-Identifier: Apache-2.0")
+    struct ActionState {
+      @verbatim (language="comment", text=
+        "This repository implements data types and logic specified in the VDA5050" "\n"
+        "protocol, which is specified here" "\n"
+        "https://github.com/VDA5050/VDA5050/blob/main/VDA5050_EN.md" "\n"
+        "action_ID")
+      string action_id;
+
+      @verbatim (language="comment", text=
+        "actionType of the action." "\n"
+        "Optional: Only for informational or visualization purposes.")
+      string action_type;
+
+      @verbatim (language="comment", text=
+        "Additional information on the current action.")
+      string action_description;
+
+      @verbatim (language="comment", text=
+        "Enum {WAITING; INITIALIZING; RUNNING; PAUSED; FINISHED; FAILED}" "\n"
+        "WAITING: waiting for the trigger (passing the mode, entering the edge)" "\n"
+        "PAUSED: paused by instantAction or external trigger" "\n"
+        "FAILED: action could not be performed.")
+      string action_status;
+
+      @verbatim (language="comment", text=
+        "Description of the result, e.g., the result of a RFID-read.")
+      string result_description;
+    };
+  };
+};

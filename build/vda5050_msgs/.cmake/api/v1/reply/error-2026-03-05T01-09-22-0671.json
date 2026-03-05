@@ -1,0 +1,37 @@
+{
+	"cmake" : 
+	{
+		"generator" : 
+		{
+			"multiConfig" : false,
+			"name" : "Unix Makefiles"
+		},
+		"paths" : 
+		{
+			"cmake" : "/home/isaacp/miniforge3/envs/ros2_jazzy_env/bin/cmake",
+			"cpack" : "/home/isaacp/miniforge3/envs/ros2_jazzy_env/bin/cpack",
+			"ctest" : "/home/isaacp/miniforge3/envs/ros2_jazzy_env/bin/ctest",
+			"root" : "/home/isaacp/miniforge3/envs/ros2_jazzy_env/share/cmake-4.2"
+		},
+		"version" : 
+		{
+			"isDirty" : false,
+			"major" : 4,
+			"minor" : 2,
+			"patch" : 3,
+			"string" : "4.2.3",
+			"suffix" : ""
+		}
+	},
+	"objects" : [],
+	"reply" : 
+	{
+		"client-colcon-cmake" : 
+		{
+			"codemodel-v2" : 
+			{
+				"error" : "no buildsystem generated"
+			}
+		}
+	}
+}

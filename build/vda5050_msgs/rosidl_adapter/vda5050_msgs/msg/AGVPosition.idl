@@ -1,0 +1,74 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from vda5050_msgs/msg/AGVPosition.msg
+// generated code does not contain a copyright notice
+
+
+module vda5050_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "SPDX-FileCopyrightText: NVIDIA CORPORATION & AFFILIATES" "\n"
+      "Copyright (c) 2022 NVIDIA CORPORATION & AFFILIATES. All rights reserved." "\n"
+      "" "\n"
+      "Licensed under the Apache License, Version 2.0 (the \"License\");" "\n"
+      "you may not use this file except in compliance with the License." "\n"
+      "You may obtain a copy of the License at" "\n"
+      "" "\n"
+      "http://www.apache.org/licenses/LICENSE-2.0" "\n"
+      "" "\n"
+      "Unless required by applicable law or agreed to in writing, software" "\n"
+      "distributed under the License is distributed on an \"AS IS\" BASIS," "\n"
+      "WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied." "\n"
+      "See the License for the specific language governing permissions and" "\n"
+      "limitations under the License." "\n"
+      "" "\n"
+      "SPDX-License-Identifier: Apache-2.0")
+    struct AGVPosition {
+      @verbatim (language="comment", text=
+        "This repository implements data types and logic specified in the VDA5050" "\n"
+        "protocol, which is specified here" "\n"
+        "https://github.com/VDA5050/VDA5050/blob/main/VDA5050_EN.md" "\n"
+        "Defines the position on a map in world coordinates." "\n"
+        "Each floor has its own map." "\n"
+        "“true”: position is initialized." "\n"
+        "“false”: position is not initialized.")
+      boolean position_initialized;
+
+      @verbatim (language="comment", text=
+        "Range:" "\n"
+        "Describes the quality of the localization" "\n"
+        "Optional for vehicles, that cannot estimate their localization score.")
+      @unit (value="0.0 ... 1.0")
+      double localization_score;
+
+      @verbatim (language="comment", text=
+        "Value for the deviation range of the position in meters." "\n"
+        "Optional for vehicles that cannot estimate their deviation e.g. grid-based" "\n"
+        "localization.")
+      double deviation_range;
+
+      @verbatim (language="comment", text=
+        "X-position on the map in reference to the map coordinate system." "\n"
+        "Precision is up to the specific implementation.")
+      double x;
+
+      @verbatim (language="comment", text=
+        "Y-position on the map in reference to the map coordinate system." "\n"
+        "Precision is up to the specific implementation.")
+      double y;
+
+      @verbatim (language="comment", text=
+        "Range:" "\n"
+        "Orientation of the AGV.")
+      @unit (value="-Pi ... Pi")
+      double theta;
+
+      @verbatim (language="comment", text=
+        "Unique identification of the map in which the position is referenced.")
+      string map_id;
+
+      @verbatim (language="comment", text=
+        "Additional information on the map.")
+      string map_description;
+    };
+  };
+};

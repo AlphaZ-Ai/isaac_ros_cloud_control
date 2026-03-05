@@ -1,0 +1,44 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from vda5050_msgs/msg/LoadDimensions.msg
+// generated code does not contain a copyright notice
+
+
+module vda5050_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "SPDX-FileCopyrightText: NVIDIA CORPORATION & AFFILIATES" "\n"
+      "Copyright (c) 2022 NVIDIA CORPORATION & AFFILIATES. All rights reserved." "\n"
+      "" "\n"
+      "Licensed under the Apache License, Version 2.0 (the \"License\");" "\n"
+      "you may not use this file except in compliance with the License." "\n"
+      "You may obtain a copy of the License at" "\n"
+      "" "\n"
+      "http://www.apache.org/licenses/LICENSE-2.0" "\n"
+      "" "\n"
+      "Unless required by applicable law or agreed to in writing, software" "\n"
+      "distributed under the License is distributed on an \"AS IS\" BASIS," "\n"
+      "WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied." "\n"
+      "See the License for the specific language governing permissions and" "\n"
+      "limitations under the License." "\n"
+      "" "\n"
+      "SPDX-License-Identifier: Apache-2.0")
+    struct LoadDimensions {
+      @verbatim (language="comment", text=
+        "This repository implements data types and logic specified in the VDA5050" "\n"
+        "protocol, which is specified here" "\n"
+        "https://github.com/VDA5050/VDA5050/blob/main/VDA5050_EN.md" "\n"
+        "Dimensions of the load’s bounding box in meters." "\n"
+        "Absolute length of the load’s bounding box.")
+      double length;
+
+      @verbatim (language="comment", text=
+        "Absolute width of the load’s bounding box.")
+      double width;
+
+      @verbatim (language="comment", text=
+        "Absolute height of the load’s bounding box." "\n"
+        "Optional: Set value only if known.")
+      double height;
+    };
+  };
+};

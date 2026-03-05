@@ -1,0 +1,31 @@
+[0.017s] Invoking command in '/home/isaacp/repos/alphaz/isaac_ros_cloud_control/build/vda5050_msgs': CONDA_PROMPT_MODIFIER=(ros2_jazzy_env) /home/isaacp/miniforge3/envs/ros2_jazzy_env/bin/cmake /home/isaacp/repos/alphaz/isaac_ros_cloud_control/vda5050_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/isaacp/repos/alphaz/isaac_ros_cloud_control/install/vda5050_msgs
+[0.201s] -- CMAKE_BUILD_TYPE: Release
+[0.201s] -- Found ament_cmake_auto: 2.5.5 (/home/isaacp/miniforge3/envs/ros2_jazzy_env/share/ament_cmake_auto/cmake)
+[0.201s] -- Found Python3: /home/isaacp/miniforge3/envs/ros2_jazzy_env/bin/python3 (found version "3.12.12") found components: Interpreter
+[0.201s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.201s] [0mCMake Deprecation Warning at CMakeLists.txt:18 (cmake_minimum_required):
+[0.201s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.202s]   CMake.
+[0.202s] 
+[0.202s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.202s]   to tell CMake that the project requires at least <min> but has been updated
+[0.202s]   to work with policies introduced by <max> or earlier.
+[0.202s] 
+[0.202s] [0m
+[0.202s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.223s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.239s] -- Found rosidl_adapter: 4.6.7 (/home/isaacp/miniforge3/envs/ros2_jazzy_env/share/rosidl_adapter/cmake)
+[0.590s] -- Found ament_cmake_ros: 0.12.0 (/home/isaacp/miniforge3/envs/ros2_jazzy_env/share/ament_cmake_ros/cmake)
+[0.826s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.140s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.141s] -- Found python_cmake_module: 0.11.1 (/home/isaacp/miniforge3/envs/ros2_jazzy_env/share/python_cmake_module/cmake)
+[1.396s] -- Found Python3: /home/isaacp/miniforge3/envs/ros2_jazzy_env/bin/python3 (found version "3.12.12") found components: Interpreter Development NumPy Development.Module Development.Embed
+[1.416s] -- Found ament_lint_auto: 0.17.4 (/home/isaacp/miniforge3/envs/ros2_jazzy_env/share/ament_lint_auto/cmake)
+[1.419s] [31mCMake Error at /home/isaacp/miniforge3/envs/ros2_jazzy_env/share/ament_cmake_core/cmake/index/ament_index_get_resource.cmake:62 (message):
+[1.419s]   ament_index_get_resource() called with not existing resource
+[1.419s]   ('isaac_ros_common_cmake_path' 'isaac_ros_common')
+[1.419s] Call Stack (most recent call first):
+[1.419s]   CMakeLists.txt:84 (ament_index_get_resource)
+[1.419s] 
+[1.419s] [0m
+[1.419s] -- Configuring incomplete, errors occurred!

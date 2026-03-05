@@ -1,0 +1,65 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from vda5050_msgs/msg/Action.msg
+// generated code does not contain a copyright notice
+
+#include "vda5050_msgs/msg/ActionParameter.idl"
+
+module vda5050_msgs {
+  module msg {
+    module Action_Constants {
+      @verbatim (language="comment", text=
+        "Enums for blockingType")
+      const string NONE = "NONE";
+      const string SOFT = "SOFT";
+      const string HARD = "HARD";
+    };
+    @verbatim (language="comment", text=
+      "SPDX-FileCopyrightText: NVIDIA CORPORATION & AFFILIATES" "\n"
+      "Copyright (c) 2022 NVIDIA CORPORATION & AFFILIATES. All rights reserved." "\n"
+      "" "\n"
+      "Licensed under the Apache License, Version 2.0 (the \"License\");" "\n"
+      "you may not use this file except in compliance with the License." "\n"
+      "You may obtain a copy of the License at" "\n"
+      "" "\n"
+      "http://www.apache.org/licenses/LICENSE-2.0" "\n"
+      "" "\n"
+      "Unless required by applicable law or agreed to in writing, software" "\n"
+      "distributed under the License is distributed on an \"AS IS\" BASIS," "\n"
+      "WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied." "\n"
+      "See the License for the specific language governing permissions and" "\n"
+      "limitations under the License." "\n"
+      "" "\n"
+      "SPDX-License-Identifier: Apache-2.0")
+    struct Action {
+      @verbatim (language="comment", text=
+        "This repository implements data types and logic specified in the VDA5050" "\n"
+        "protocol, which is specified here" "\n"
+        "https://github.com/VDA5050/VDA5050/blob/main/VDA5050_EN.md" "\n"
+        "Describes an action that the AGV can perform." "\n"
+        "Name of action as described in the first column of “Actions and Parameters”." "\n"
+        "Identifies the function of the action.")
+      string action_type;
+
+      @verbatim (language="comment", text=
+        "Unique ID to identify the action and map them to the actionState in the" "\n"
+        "state. Suggestion: Use UUIDs.")
+      string action_id;
+
+      @verbatim (language="comment", text=
+        "Additional information on the action")
+      string action_description;
+
+      @verbatim (language="comment", text=
+        "Enum {NOTE, SOFT, HARD}:" "\n"
+        "\"NONE\"- allows driving and other actions;" "\n"
+        "\"SOFT\"- allows other actions, but not driving;" "\n"
+        "\"HARD\"- is the only allowed action at that time.")
+      string blocking_type;
+
+      @verbatim (language="comment", text=
+        "Array of actionParameter-objects for the indicated action, e.g., deviceId," "\n"
+        "loadId, external Triggers.")
+      sequence<vda5050_msgs::msg::ActionParameter> action_parameters;
+    };
+  };
+};

@@ -1,0 +1,56 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from vda5050_msgs/msg/Error.msg
+// generated code does not contain a copyright notice
+
+#include "vda5050_msgs/msg/ErrorReference.idl"
+
+module vda5050_msgs {
+  module msg {
+    module Error_Constants {
+      @verbatim (language="comment", text=
+        "Enums for error_level")
+      const string WARNING = "WARNING";
+      const string FATAL = "FATAL";
+    };
+    @verbatim (language="comment", text=
+      "SPDX-FileCopyrightText: NVIDIA CORPORATION & AFFILIATES" "\n"
+      "Copyright (c) 2022 NVIDIA CORPORATION & AFFILIATES. All rights reserved." "\n"
+      "" "\n"
+      "Licensed under the Apache License, Version 2.0 (the \"License\");" "\n"
+      "you may not use this file except in compliance with the License." "\n"
+      "You may obtain a copy of the License at" "\n"
+      "" "\n"
+      "http://www.apache.org/licenses/LICENSE-2.0" "\n"
+      "" "\n"
+      "Unless required by applicable law or agreed to in writing, software" "\n"
+      "distributed under the License is distributed on an \"AS IS\" BASIS," "\n"
+      "WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied." "\n"
+      "See the License for the specific language governing permissions and" "\n"
+      "limitations under the License." "\n"
+      "" "\n"
+      "SPDX-License-Identifier: Apache-2.0")
+    struct Error {
+      @verbatim (language="comment", text=
+        "This repository implements data types and logic specified in the VDA5050" "\n"
+        "protocol, which is specified here" "\n"
+        "https://github.com/VDA5050/VDA5050/blob/main/VDA5050_EN.md" "\n"
+        "Type/name of error")
+      string error_type;
+
+      @verbatim (language="comment", text=
+        "Array of references to identify the source of the error")
+      sequence<vda5050_msgs::msg::ErrorReference> error_references;
+
+      @verbatim (language="comment", text=
+        "Error description.")
+      string error_description;
+
+      @verbatim (language="comment", text=
+        "Enum {WARNING, FATAL}" "\n"
+        "WARNING: AGV is ready to start (e.g. maintenance cycle expiration warning)." "\n"
+        "FATAL: AGV is not in running condition, user intervention required" "\n"
+        "(e.g. laser scanner is contaminated).")
+      string error_level;
+    };
+  };
+};
