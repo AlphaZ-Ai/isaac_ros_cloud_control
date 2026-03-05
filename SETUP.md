@@ -202,7 +202,7 @@ first you need to register the robot in the `POST /register` endpoint.
 }
 ```
 
-then you need to send the `POST /mission` endpoint with the following body
+then you need to send the `POST /mission` endpoint with the following body, if you want to send more missions, you need to change the name of the mission.
 
 ```json
 {
@@ -229,3 +229,4 @@ then you need to send the `POST /mission` endpoint with the following body
 }
 ```
 
+the robot should now go to its waypoint.
