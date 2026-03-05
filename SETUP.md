@@ -11,23 +11,28 @@ pull the image
 docker pull nvcr.io/nvidia/isaac-sim:5.1.0
 ```
 
-run the container
+run the container, change the `USD_DIR` to where you store usd assets to be able to access them from the container.
 
 ```bash
+USD_DIR=~/.cache/
+```
 
-docker run --name isaac-sim --entrypoint bash -it --runtime=nvidia --gpus all -e "ACCEPT_EULA=Y" --rm --network=host \
-    -e "PRIVACY_CONSENT=Y" \
-    -e "ROS_DOMAIN_ID=0" \
-    -v ~/docker/isaac-sim/cache/kit:/isaac-sim/kit/cache:rw \
-    -v ~/docker/isaac-sim/cache/ov:/root/.cache/ov:rw \
-    -v ~/docker/isaac-sim/cache/pip:/root/.cache/pip:rw \
-    -v ~/docker/isaac-sim/cache/glcache:/root/.cache/nvidia/GLCache:rw \
-    -v ~/docker/isaac-sim/cache/computecache:/root/.nv/ComputeCache:rw \
-    -v ~/docker/isaac-sim/logs:/root/.nvidia-omniverse/logs:rw \
-    -v ~/docker/isaac-sim/data:/root/.local/share/ov/data:rw \
-    -v ~/docker/isaac-sim/documents:/root/Documents:rw \
-    nvcr.io/nvidia/isaac-sim:5.1.0 \
-    ./runheadless.sh -v
+```bash
+docker run --name isaac-sim -it --rm --gpus all --network host \
+  -e ACCEPT_EULA=Y \
+  -e PRIVACY_CONSENT=Y \
+  -e ROS_DOMAIN_ID=0 \
+  -v "$USD_DIR":/host_usd:rw \
+  -v ~/docker/isaac-sim/cache/kit:/isaac-sim/kit/cache:rw \
+  -v ~/docker/isaac-sim/cache/ov:/root/.cache/ov:rw \
+  -v ~/docker/isaac-sim/cache/pip:/root/.cache/pip:rw \
+  -v ~/docker/isaac-sim/cache/glcache:/root/.cache/nvidia/GLCache:rw \
+  -v ~/docker/isaac-sim/cache/computecache:/root/.nv/ComputeCache:rw \
+  -v ~/docker/isaac-sim/logs:/root/.nvidia-omniverse/logs:rw \
+  -v ~/docker/isaac-sim/data:/root/.local/share/ov/data:rw \
+  -v ~/docker/isaac-sim/documents:/root/Documents:rw \
+  nvcr.io/nvidia/isaac-sim:5.1.0 \
+  ./runheadless.sh -v
 ```
 outside the container, download and run the webrtc client
 
@@ -97,19 +102,21 @@ isaac-ros activate
 
 install the needed packages, note you will need to do this every time you restart the container
 
-```bash
-sudo apt update
-sudo apt-get install -y ros-jazzy-isaac-ros-mission-client
-```
-
-you also need to install cyclonedds
 
 ```bash
 sudo apt-get update
 sudo apt-get install -y ros-${ROS_DISTRO}-rmw-cyclonedds-cpp
 export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-unset ROS_LOCALHOST_ONLY
 ```
+
+after the above install, you should be able to run the example env and see the ros2 topics being published
+
+```bash
+sudo apt update
+sudo apt-get install -y ros-jazzy-isaac-ros-mission-client
+```
+
+
 
 ## setup the mqtt broker
 
