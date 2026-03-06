@@ -125,19 +125,29 @@ these docs can be found here -> https://nvidia-isaac-ros.github.io/concepts/miss
 outside the container 
 
 ```bash
-touch ~/mosquitto.sh
-echo "CONFIG_FILE=/mosquitto.conf
-if [ $# != 2 ] ; then
+cat > ~/mosquitto.sh <<'EOF'
+#!/usr/bin/env bash
+
+CONFIG_FILE=/tmp/mosquitto.conf
+
+if [ "$#" != 2 ]; then
     echo "usage: $0 <tcp_port> <websocket_port>"
     exit 1
 fi
-PORT=$1
-PORT_WEBSOCKET=$2
-echo "allow_anonymous true" >> $CONFIG_FILE
-echo "listener $PORT 0.0.0.0" >> $CONFIG_FILE
-echo "listener $PORT_WEBSOCKET" >> $CONFIG_FILE
-echo "protocol websockets" >> $CONFIG_FILE
-mosquitto -c $CONFIG_FILE" > ~/mosquitto.sh
+
+PORT="$1"
+PORT_WEBSOCKET="$2"
+
+cat > "$CONFIG_FILE" <<EOC
+allow_anonymous true
+listener $PORT 0.0.0.0
+listener $PORT_WEBSOCKET
+protocol websockets
+EOC
+
+mosquitto -c "$CONFIG_FILE"
+EOF
+
 chmod +x ~/mosquitto.sh
 ```
 
