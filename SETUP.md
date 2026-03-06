@@ -45,6 +45,17 @@ chmod +x isaacsim-webrtc-streaming-client-1.1.4-linux-x64.AppImage
 to run the demo, go to  `Window` -> `Examples` -> then check `Robot Examples`
 that will open a tab at the bottom, in that tab go to `ROS2` -> `ISAAC ROS` -> `Sample Scene` and `Load Sample Scene`
 
+you also need to configure the environment accordingly
+
+Select /World/Nova_Carter_ROS/ros_lidars/front_2d_lidar_render_product in the Stage pane and set enabled to True (checked).
+
+Select /World/Nova_Carter_ROS/ros_lidars/front_3d_lidar_render_product in the Stage pane and set enabled to False (unchecked).
+
+Select /World/Nova_Carter_ROS/front_hawk/left_camera_render_product in the Stage pane and set enabled to False (unchecked).
+
+Select /World/Nova_Carter_ROS/front_hawk/right_camera_render_product in the Stage pane and set enabled to False (unchecked).
+
+
 ## setup isaac sim dev env
 
 the following steps install the isaac-ros cli, the docs can be found here -> https://nvidia-isaac-ros.github.io/getting_started/index.html
