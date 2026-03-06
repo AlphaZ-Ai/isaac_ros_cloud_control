@@ -47,13 +47,13 @@ that will open a tab at the bottom, in that tab go to `ROS2` -> `ISAAC ROS` -> `
 
 you also need to configure the environment accordingly
 
-Select /World/Nova_Carter_ROS/ros_lidars/front_2d_lidar_render_product in the Stage pane and set enabled to True (checked).
+- Select `/World/Nova_Carter_ROS/ros_lidars/front_2d_lidar_render_product` in the Stage pane and set enabled to `True (checked)`.
 
-Select /World/Nova_Carter_ROS/ros_lidars/front_3d_lidar_render_product in the Stage pane and set enabled to False (unchecked).
+- Select `/World/Nova_Carter_ROS/ros_lidars/front_3d_lidar_render_product` in the Stage pane and set enabled to `False (unchecked)`.
 
-Select /World/Nova_Carter_ROS/front_hawk/left_camera_render_product in the Stage pane and set enabled to False (unchecked).
+- Select `/World/Nova_Carter_ROS/front_hawk/left_camera_render_product` in the Stage pane and set enabled to `False (unchecked)`.
 
-Select /World/Nova_Carter_ROS/front_hawk/right_camera_render_product in the Stage pane and set enabled to False (unchecked).
+- Select `/World/Nova_Carter_ROS/front_hawk/right_camera_render_product` in the Stage pane and set enabled to `False (unchecked)`.
 
 
 ## setup isaac sim dev env
